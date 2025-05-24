@@ -1,4 +1,4 @@
-# John Doe – CSE Portfolio
+# Md.Golam All Gaffar Tasin – CSE Portfolio
 
 This is a professional, single-page portfolio for a BSc in Computer Science and Engineering graduate aspiring to become a university teacher. Built with React.js and Tailwind CSS, it is fully responsive and easy to customize.
 
