@@ -1,0 +1,64 @@
+{
+  "about": {
+    "name": "MD. Golam All Gaffar Tasin",
+    "title": "Aspiring University Lecturer in Computer Science",
+    "headshot": "https://randomuser.me/api/portraits/men/32.jpg",
+    "summary": "Recent BSc in CSE graduate with a passion for teaching and research in AI. Dedicated to fostering curiosity and hands-on learning in students."
+  },
+  "education": [
+    {
+      "degree": "BSc in Computer Science and Engineering",
+      "university": "XYZ University",
+      "year": "2025",
+      "cgpa": "3.76/4.0",
+      "coursework": ["Data Structures", "Algorithms", "Machine Learning"]
+    },
+    {
+      "certification": "Teaching Assistant Training",
+      "issuer": "XYZ Institute",
+      "year": "2024"
+    }
+  ],
+  "skills": {
+    "technical": ["Python", "Java", "C++", "React.js", "SQL"],
+    "teaching": ["Communication", "Presentation", "Curriculum Design"]
+  },
+  "experience": [
+    {
+      "role": "Teaching Assistant",
+      "institution": "XYZ University",
+      "duration": "Jan 2024 - Dec 2024",
+      "description": "Assisted in teaching Data Structures and Algorithms, conducted lab sessions, and provided academic support."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Machine Learning Classifier",
+      "description": "Developed a classifier for image recognition using deep learning techniques.",
+      "technologies": ["Python", "TensorFlow", "OpenCV"],
+      "outcomes": "Achieved 95% accuracy on test data.",
+      "link": "https://github.com/username/project"
+    },
+    {
+      "title": "Machine Learning Classifier",
+      "description": "Developed a classifier for image recognition using deep learning techniques.",
+      "technologies": ["Python", "TensorFlow", "OpenCV"],
+      "outcomes": "Achieved 95% accuracy on test data.",
+      "link": "https://github.com/username/project"
+    }
+  ],
+  "publications": [
+    {
+      "title": "A Survey on Deepfake Detection",
+      "venue": "International Conference on AI",
+      "year": "2024",
+      "link": "https://doi.org/..."
+    }
+  ],
+  "research_interests": ["Artificial Intelligence", "Machine Learning", "Cybersecurity"],
+  "contact": {
+    "email": "mdtasin1971@gmail.com",
+    "linkedin": "https://linkedin.com/in/johndoe",
+    "github": "https://github.com/johndoe"
+  }
+}

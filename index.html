@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Doe | CSE Portfolio</title>
+    <!-- Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts: Lora -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Lora', serif; }
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div id="root"></div>
+    <!-- React, ReactDOM, Babel -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Portfolio App -->
+    <script type="text/babel">
+      // Utility: Fetch JSON config
+      function useConfig() {
+        const [config, setConfig] = React.useState(null);
+        const [error, setError] = React.useState(null);
+        React.useEffect(() => {
+          fetch('config.json')
+            .then(res => {
+              if (!res.ok) throw new Error('Failed to load config.json');
+              return res.json();
+            })
+            .then(setConfig)
+            .catch(e => setError(e.message));
+        }, []);
+        return [config, error];
+      }
+
+      // Navigation Bar Component
+      function Navbar({ about }) {
+        const navItems = [
+          { label: 'About', href: '#about' },
+          { label: 'Education', href: '#education' },
+          { label: 'Skills', href: '#skills' },
+          { label: 'Experience', href: '#experience' },
+          { label: 'Projects', href: '#projects' },
+          { label: 'Publications', href: '#publications' },
+          { label: 'Research', href: '#research' },
+          { label: 'Contact', href: '#contact' },
+        ];
+        return (
+          <nav className="fixed w-full bg-white shadow z-50">
+            <div className="max-w-5xl mx-auto flex justify-between items-center px-4 py-2">
+              <span className="font-bold text-lg tracking-wide">{about?.name || 'Portfolio'}</span>
+              <ul className="flex space-x-4">
+                {navItems.map(item => (
+                  <li key={item.href}>
+                    <a href={item.href} className="hover:text-blue-600 transition-colors duration-200 focus:outline-none focus:underline">{item.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        );
+      }
+
+      // About Section
+      function About({ about }) {
+        if (!about) return null;
+        return (
+          <section id="about" className="pt-24 pb-12 bg-white">
+            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center px-4">
+              <img src={about.headshot} alt={about.name + ' professional headshot'} className="w-32 h-32 rounded-full shadow-md mb-4 md:mb-0 md:mr-8" />
+              <div>
+                <h1 className="text-3xl font-bold mb-2">{about.name}</h1>
+                <h2 className="text-xl text-blue-700 mb-2">{about.title}</h2>
+                <p className="mb-2">{about.summary}</p>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Education Section
+      function Education({ education }) {
+        if (!education) return null;
+        return (
+          <section id="education" className="py-12 bg-gray-50">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Education</h2>
+              {education.map((item, idx) => (
+                <div key={idx} className="mb-4 p-4 bg-white rounded shadow">
+                  {item.degree && <h3 className="font-semibold">{item.degree}</h3>}
+                  {item.university && <p>{item.university}, {item.year}</p>}
+                  {item.cgpa && <p>CGPA: {item.cgpa}</p>}
+                  {item.coursework && <p className="text-sm text-gray-600">Relevant Coursework: {item.coursework.join(', ')}</p>}
+                  {item.certification && <h3 className="font-semibold">{item.certification}</h3>}
+                  {item.issuer && <p>{item.issuer}, {item.year}</p>}
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      }
+
+      // Skills Section
+      function Skills({ skills }) {
+        if (!skills) return null;
+        return (
+          <section id="skills" className="py-12 bg-white">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Skills</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-semibold mb-2">Technical Skills</h3>
+                  <ul className="list-disc ml-6">
+                    {skills.technical?.map((s, i) => <li key={i}>{s}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Teaching/Soft Skills</h3>
+                  <ul className="list-disc ml-6">
+                    {skills.teaching?.map((s, i) => <li key={i}>{s}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Experience Section
+      function Experience({ experience }) {
+        if (!experience) return null;
+        return (
+          <section id="experience" className="py-12 bg-gray-50">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Experience</h2>
+              {experience.map((item, idx) => (
+                <div key={idx} className="mb-4 p-4 bg-white rounded shadow">
+                  <h3 className="font-semibold">{item.role}, {item.institution}</h3>
+                  <p className="text-sm text-gray-600">{item.duration}</p>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      }
+
+      // Projects Section
+      function Projects({ projects }) {
+        if (!projects) return null;
+        return (
+          <section id="projects" className="py-12 bg-white">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Projects</h2>
+              <div className="grid gap-6 md:grid-cols-2">
+                {projects.map((project, idx) => (
+                  <div key={idx} className="bg-gray-50 rounded shadow p-4 hover:shadow-lg transition-shadow duration-200">
+                    <h3 className="font-semibold mb-1">{project.title}</h3>
+                    <p className="mb-2 text-sm">{project.description}</p>
+                    <p className="mb-2 text-xs text-gray-600">Technologies: {project.technologies?.join(', ')}</p>
+                    {project.outcomes && <p className="mb-2 text-xs text-gray-600">{project.outcomes}</p>}
+                    {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">View Project</a>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Publications Section
+      function Publications({ publications }) {
+        if (!publications) return null;
+        return (
+          <section id="publications" className="py-12 bg-gray-50">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Publications</h2>
+              <div className="grid gap-6">
+                {publications.map((pub, idx) => (
+                  <div key={idx} className="bg-white rounded shadow p-4 hover:shadow-lg transition-shadow duration-200">
+                    <h3 className="font-semibold mb-1">{pub.title}</h3>
+                    <p className="mb-2 text-sm">{pub.venue} ({pub.year})</p>
+                    {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">View Publication</a>}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Research Interests Section
+      function Research({ research_interests }) {
+        if (!research_interests) return null;
+        return (
+          <section id="research" className="py-12 bg-white">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Research Interests</h2>
+              <ul className="list-disc ml-6 mb-4">
+                {research_interests.map((r, i) => <li key={i}>{r}</li>)}
+              </ul>
+            </div>
+          </section>
+        );
+      }
+
+      // Contact Section
+      function Contact({ contact }) {
+        if (!contact) return null;
+        const [form, setForm] = React.useState({ name: '', email: '', message: '' });
+        const [submitted, setSubmitted] = React.useState(false);
+        const [error, setError] = React.useState('');
+        const [sending, setSending] = React.useState(false);
+        function handleChange(e) {
+          setForm({ ...form, [e.target.name]: e.target.value });
+        }
+        async function handleSubmit() {
+          if (!form.name || !form.email || !form.message) {
+            setError('Please fill in all fields.');
+            return;
+          }
+          if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) {
+            setError('Please enter a valid email address.');
+            return;
+          }
+          setSending(true);
+          setError('');
+          // Replace the endpoint below with your Formspree endpoint after signup
+          const endpoint = 'https://formspree.io/f/xnndrgjk'; // DEMO endpoint, replace with your own
+          try {
+            const res = await fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: form.name,
+                email: form.email,
+                message: form.message
+              })
+            });
+            if (res.ok) {
+              setSubmitted(true);
+              setForm({ name: '', email: '', message: '' });
+            } else {
+              setError('Failed to send message. Please try again later.');
+            }
+          } catch (e) {
+            setError('Failed to send message. Please try again later.');
+          }
+          setSending(false);
+        }
+        return (
+          <section id="contact" className="py-12 bg-gray-50">
+            <div className="max-w-3xl mx-auto px-4">
+              <h2 className="text-2xl font-bold mb-4">Contact</h2>
+              <div className="mb-4">
+                <p>Email: <a href={`mailto:${contact.email}`} className="text-blue-600 hover:underline">{contact.email}</a></p>
+                <p>LinkedIn: <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{contact.linkedin}</a></p>
+                {contact.github && <p>GitHub: <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{contact.github}</a></p>}
+              </div>
+              <div className="bg-white rounded shadow p-4">
+                <h3 className="font-semibold mb-2">Contact Form</h3>
+                {submitted ? (
+                  <p className="text-green-600">Thank you for your message!</p>
+                ) : (
+                  <>
+                    <div className="mb-2">
+                      <label className="block text-sm font-medium">Name</label>
+                      <input type="text" name="name" value={form.name} onChange={handleChange} className="w-full border rounded px-2 py-1" />
+                    </div>
+                    <div className="mb-2">
+                      <label className="block text-sm font-medium">Email</label>
+                      <input type="email" name="email" value={form.email} onChange={handleChange} className="w-full border rounded px-2 py-1" />
+                    </div>
+                    <div className="mb-2">
+                      <label className="block text-sm font-medium">Message</label>
+                      <textarea name="message" value={form.message} onChange={handleChange} className="w-full border rounded px-2 py-1" rows="3"></textarea>
+                    </div>
+                    {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
+                    <button type="button" onClick={handleSubmit} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors" disabled={sending}>{sending ? 'Sending...' : 'Send'}</button>
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Main App Component
+      function App() {
+        const [config, error] = useConfig();
+        if (error) return <div className="text-center mt-20 text-red-600">{error}</div>;
+        if (!config) return <div className="text-center mt-20">Loading...</div>;
+        return (
+          <div>
+            <Navbar about={config.about} />
+            <main>
+              <About about={config.about} />
+              <Education education={config.education} />
+              <Skills skills={config.skills} />
+              <Experience experience={config.experience} />
+              <Projects projects={config.projects} />
+              <Publications publications={config.publications} />
+              <Research research_interests={config.research_interests} />
+              <Contact contact={config.contact} />
+            </main>
+            <footer className="text-center text-xs text-gray-500 py-4 bg-gray-50 mt-8">
+              &copy; {new Date().getFullYear()} {config.about?.name || 'Portfolio'}. Built with React & Tailwind CSS.
+            </footer>
+          </div>
+        );
+      }
+
+      // Render the App
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
