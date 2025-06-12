@@ -29,7 +29,7 @@
       "role": "Private Home Tutor",
       "institution": "",
       "duration": "Jan 2019 - March 2025",
-      "description": "Delivered personalized academic instruction to students across [SSC, hSC and university level] in subjects including [Mathematics, Physics, Complex variable, Fourier Transform, Operating System, Neural Networks]."
+      "description": "Delivered personalized academic instruction to students across [SSC, HSC and university level] in subjects including [Mathematics, Physics, Complex variable, Fourier Transform, Operating System, Neural Networks]."
     }
   ],
   "projects": [
@@ -46,14 +46,43 @@
       "technologies": ["java"],
       "outcomes": "",
       "link": "https://github.com/Tasin18/banking-system-project"
+    },
+    {
+      "title": "Multiple Disease Prediction",
+      "description": " Implemented a predictive model to assess the risk of heart disease,diabetes and cancer utilizing machine learning algorithms.",
+      "technologies": ["Python", "TensorFlow", "machine learning", "ensemble techniques"],
+      "outcomes": "Achieved 90% accuracy on test dataset.",
+      "link": "https://github.com/Tasin18/Multiple_disease_prediction"
+    },
+    {
+      "title": "Tennis Game Analysis",
+      "description": "Developed an analytical tool to assess player performance based on statistical data collected during matches.",
+      "technologies": ["Python", "NumPy", "Matplotlib", "pretrained model", "PyTorch"],
+      "outcomes": "",
+      "link": "https://www.kaggle.com/code/tasin99/tennis-game-analysis"
+    },
+    {
+      "title": "5-bit CPU",
+      "description": "Developed a fully functional 5-bit CPU which can perform addition, subtraction and many more operation according to control signal.",
+      "technologies": ["Logisim"],
+      "outcomes": "",
+      "link": "https://github.com/Tasin18/CPU-circuits"
+    },
+    {
+      "title": "Ceramic Tile Surface Defect Detection",
+      "description": "Built a real-time defect detection system to enhance quality.",
+      "technologies": ["Python", "PyTorch", "streamlit", "OpenCV"],
+      "outcomes": "",
+      "link": "https://github.com/Tasin18/tiledefect-ai"
     }
+    
   ],
   "publications": [
     {
-      "title": "A Survey on Deepfake Detection",
-      "venue": "International Conference on AI",
-      "year": "2024",
-      "link": "https://doi.org/..."
+      "title": "Thesis: DeepFake Image Detection: Efficient real-time detection with minimal accurcy loss.",
+      "venue": "Supervised by Dr. Md. Robiul Islam, Professor, Department of CSE, RUET",
+      "year": "2025",
+      "link": ""
     }
   ],
   "research_interests": ["Artificial Intelligence", "Machine Learning", "Computer Vision", "Deep Learning"],
