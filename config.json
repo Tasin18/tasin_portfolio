@@ -1,50 +1,51 @@
 {
   "about": {
     "name": "MD. Golam All Gaffar Tasin",
-    "title": "Aspiring University Lecturer in Computer Science",
-    "headshot": "https://randomuser.me/api/portraits/men/32.jpg",
+    "title": "Seeking opportunity for University Lecturer in Computer Science",
+    "headshot": "passport size image.jpg",
     "summary": "Recent BSc in CSE graduate with a passion for teaching and research in AI. Dedicated to fostering curiosity and hands-on learning in students."
   },
   "education": [
     {
       "degree": "BSc in Computer Science and Engineering",
-      "university": "XYZ University",
+      "university": "Rajshahi University Of Engineering & Technology (RUET)",
       "year": "2025",
       "cgpa": "3.76/4.0",
-      "coursework": ["Data Structures", "Algorithms", "Machine Learning"]
+      "coursework": ["Data Structures", "Database System", "Neural Networks", "Operating Systems"]
     },
     {
-      "certification": "Teaching Assistant Training",
-      "issuer": "XYZ Institute",
-      "year": "2024"
+      "certification": "Fundamental IT Engineer Examination of Information Technology Engineers Examination",
+      "issuer": "Bangladesh Computer Council (BCC)",
+      "year": "2023",
+      "link": "https://drive.google.com/file/d/1rzlcgE0TZxB1pwAkIheVWz3TDZnbjhg_/view"
     }
   ],
   "skills": {
-    "technical": ["Python", "Java", "C++", "React.js", "SQL"],
-    "teaching": ["Communication", "Presentation", "Curriculum Design"]
+    "technical": ["Python", "Java", "C++", "Deep learning", "SQL", "Machine Learning", "Data Structures", "Algorithms"],
+    "teaching": ["Communication", "Presentation", "Curriculum Design", "Student Engagement", "Assessment"]
   },
   "experience": [
     {
-      "role": "Teaching Assistant",
-      "institution": "XYZ University",
-      "duration": "Jan 2024 - Dec 2024",
-      "description": "Assisted in teaching Data Structures and Algorithms, conducted lab sessions, and provided academic support."
+      "role": "Private Home Tutor",
+      "institution": "",
+      "duration": "Jan 2019 - March 2025",
+      "description": "Delivered personalized academic instruction to students across [SSC, hSC and university level] in subjects including [Mathematics, Physics, Complex variable, Fourier Transform, Operating System, Neural Networks]."
     }
   ],
   "projects": [
     {
-      "title": "Machine Learning Classifier",
-      "description": "Developed a classifier for image recognition using deep learning techniques.",
-      "technologies": ["Python", "TensorFlow", "OpenCV"],
-      "outcomes": "Achieved 95% accuracy on test data.",
-      "link": "https://github.com/username/project"
+      "title": "E-commerce Website",
+      "description": "Developed a full functioning e-commerce website.",
+      "technologies": ["HTML", "CSS", "JavaScript", "SQL","node.js","ejs"],
+      "outcomes": "",
+      "link": "https://github.com/Tasin18/e-commerce-project"
     },
     {
-      "title": "Machine Learning Classifier",
-      "description": "Developed a classifier for image recognition using deep learning techniques.",
-      "technologies": ["Python", "TensorFlow", "OpenCV"],
-      "outcomes": "Achieved 95% accuracy on test data.",
-      "link": "https://github.com/username/project"
+      "title": "Banking System",
+      "description": "Developed a full functioning banking system software.",
+      "technologies": ["java"],
+      "outcomes": "",
+      "link": "https://github.com/Tasin18/banking-system-project"
     }
   ],
   "publications": [
@@ -55,10 +56,10 @@
       "link": "https://doi.org/..."
     }
   ],
-  "research_interests": ["Artificial Intelligence", "Machine Learning", "Cybersecurity"],
+  "research_interests": ["Artificial Intelligence", "Machine Learning", "Computer Vision", "Deep Learning"],
   "contact": {
     "email": "mdtasin1971@gmail.com",
-    "linkedin": "https://linkedin.com/in/johndoe",
-    "github": "https://github.com/johndoe"
+    "linkedin": "https://www.linkedin.com/in/md-golam-all-gaffar-tasin/",
+    "github": "https://github.com/Tasin18"
   }
 }

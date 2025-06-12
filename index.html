@@ -90,7 +90,7 @@
         return (
           <section id="about" className="pt-24 pb-12 bg-white">
             <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center px-4 gap-6">
-              <img src={about.headshot} alt={about.name + ' professional headshot'} className="w-32 h-32 rounded-full shadow-md mb-4 md:mb-0 md:mr-8 object-cover" loading="lazy" />
+              <img src={about.headshot} alt={about.name + ' professional headshot'} className="w-44 h-44 rounded-full shadow-md mb-4 md:mb-0 md:mr-8 object-cover" style={{aspectRatio: '.9 / 1', objectPosition: 'center top', transform: 'scale(1)'}} loading="lazy" />
               <div className="text-center md:text-left">
                 <h1 className="text-3xl font-bold mb-2">{about.name}</h1>
                 <h2 className="text-xl text-blue-700 mb-2">{about.title}</h2>
@@ -113,8 +113,25 @@
                   {item.degree && <h3 className="font-semibold">{item.degree}</h3>}
                   {item.university && <p>{item.university}, {item.year}</p>}
                   {item.cgpa && <p>CGPA: {item.cgpa}</p>}
-                  {item.coursework && <p className="text-sm text-gray-600">Relevant Coursework: {item.coursework.join(', ')}</p>}
-                  {item.certification && <h3 className="font-semibold">{item.certification}</h3>}
+                  {item.coursework && item.coursework.length > 0 && (
+                    <div className="text-sm text-gray-600">
+                      <span>Relevant Coursework:</span>
+                      <ul className="list-disc ml-6 mt-1">
+                        {item.coursework.map((course, i) => (
+                          <li key={i}>{course}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {item.certification && (
+                    item.link ? (
+                      <h3 className="font-semibold">
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">{item.certification}</a>
+                      </h3>
+                    ) : (
+                      <h3 className="font-semibold">{item.certification}</h3>
+                    )
+                  )}
                   {item.issuer && <p>{item.issuer}, {item.year}</p>}
                 </div>
               ))}
@@ -126,23 +143,20 @@
       // Skills Section
       function Skills({ skills }) {
         if (!skills) return null;
+        // Dynamically render all skill categories and their items
         return (
           <section id="skills" className="py-12 bg-white">
             <div className="max-w-3xl mx-auto px-4">
               <h2 className="text-2xl font-bold mb-4">Skills</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold mb-2">Technical Skills</h3>
-                  <ul className="list-disc ml-6">
-                    {skills.technical?.map((s, i) => <li key={i}>{s}</li>)}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Teaching/Soft Skills</h3>
-                  <ul className="list-disc ml-6">
-                    {skills.teaching?.map((s, i) => <li key={i}>{s}</li>)}
-                  </ul>
-                </div>
+                {Object.entries(skills).map(([category, items]) => (
+                  <div key={category}>
+                    <h3 className="font-semibold mb-2 capitalize">{category.replace(/_/g, ' ')} Skills</h3>
+                    <ul className="list-disc ml-6">
+                      {items.map((s, i) => <li key={i}>{s}</li>)}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
