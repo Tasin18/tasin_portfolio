@@ -10,8 +10,23 @@
       "degree": "BSc in Computer Science and Engineering",
       "university": "Rajshahi University Of Engineering & Technology (RUET)",
       "year": "2025",
-      "cgpa": "3.76/4.0",
-      "coursework": ["Data Structures", "Database System", "Neural Networks", "Operating Systems"]
+      "cgpa": "3.78/4.0",
+      "coursework": ["Data Structures", "Database System", "Neural Networks", "Operating Systems"],
+      "certificate_link": "https://drive.google.com/drive/folders/16-lUkOcvn6H_YYd6Z_5q1pXkRaDXqBZ5?usp=sharing"
+    },
+    {
+      "degree": "HSC (Higher Secondary Certificate)",
+      "institution": "Police Lines School & College, Rangpur",
+      "year": "2019",
+      "result": "GPA 5.00/5.00",
+      "certificate_link": "https://drive.google.com/drive/folders/1OCvvt746-OyjN20_rhTO88zlvcX6DccE?usp=sharing"
+    },
+    {
+      "degree": "SSC (Secondary School Certificate)",
+      "institution": "Collectorate School And College, Rangpur",
+      "year": "2017",
+      "result": "GPA 5.00/5.00",
+      "certificate_link": "https://drive.google.com/drive/folders/1G8s7SuwxWKaWkC-Q237KDzEHN--mPXAT?usp=sharing"
     },
     {
       "certification": "Fundamental IT Engineer Examination of Information Technology Engineers Examination",
