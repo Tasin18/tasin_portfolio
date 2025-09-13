@@ -1,9 +1,9 @@
 {
   "about": {
     "name": "MD. Golam All Gaffar Tasin",
-    "title": "Seeking opportunity for University Lecturer in Computer Science",
+    "title": "Lecturer in Computer Science & Engineering at North Bengal International University",
     "headshot": "passport size image.jpg",
-    "summary": "Recent BSc in CSE graduate with a passion for teaching and research in AI. Dedicated to fostering curiosity and hands-on learning in students."
+    "summary": "BSc in CSE with expertise in Deep Learning, Computer Vision and a commitment to inspiring students through innovative teaching and research."
   },
   "education": [
     {
@@ -42,10 +42,10 @@
   },
   "experience": [
     {
-      "role": "Private Home Tutor",
-      "institution": "",
-      "duration": "Jan 2019 - March 2025",
-      "description": "Delivered personalized academic instruction to students across [SSC, HSC and university level] in subjects including [Mathematics, Physics, Complex variable, Fourier Transform, Operating System, Neural Networks]."
+      "role": "Lecturer",
+      "institution": "North Bengal International University",
+      "duration": "August 2025 - Present",
+      "description": "Teaching undergraduate courses in Computer Science & Engineering, including Digital Signal Processing, Wireless Communication And Networks and Database Systems. Mentoring students on academic projects and research initiatives."
     }
   ],
   "projects": [
@@ -93,14 +93,30 @@
     }
     
   ],
-  "publications": [
-    {
-      "title": "Thesis: DeepFake Image Detection: Efficient real-time detection with minimal accurcy loss.",
-      "venue": "Supervised by Dr. Md. Robiul Islam, Professor, Department of CSE, RUET",
-      "year": "2025",
-      "link": ""
-    }
-  ],
+      "publications": [
+        {
+          "heading": "Thesis",
+          "items": [
+            {
+              "title": "DeepFake Image Detection: Efficient real-time detection with minimal accuracy loss.",
+              "venue": "Supervised by Dr. Md. Robiul Islam, Professor, Department of CSE, RUET",
+              "year": "2025",
+              "link": ""
+            }
+          ]
+        },
+        {
+          "heading": "Accepted Paper",
+          "items": [
+            {
+              "title": "DeepFake Image Detection: Efficient Real-Time Detection with High Accurcy.",
+              "venue": "3rd International Conference on Big Data, IoT and Machine Learning (BIM 2025)",
+              "year": "2025",
+              "link": ""
+            }
+          ]
+        }
+      ],
   "research_interests": ["Artificial Intelligence", "Machine Learning", "Computer Vision", "Deep Learning"],
   "contact": {
     "email": "md.tasin99@gmail.com",

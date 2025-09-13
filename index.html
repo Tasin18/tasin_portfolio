@@ -9,10 +9,50 @@
     <noscript><link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-      body { font-family: 'Lora', serif; }
+      body { font-family: 'Inter', Arial, sans-serif; background: #f8f9fa; color: #222; }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Georgia', serif; }
       html { scroll-behavior: smooth; }
+      .section-title {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 1.15rem;
+        color: #2a3a4d;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 0.25em;
+        margin-bottom: 1.5em;
+        font-weight: 700;
+      }
+      .academic-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        border-radius: 8px;
+        padding: 2.5rem 2rem 2rem 2rem;
+      }
+      .academic-header {
+        border-bottom: 2px solid #e0e0e0;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+      }
+      .academic-headshot {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #e0e0e0;
+      }
+      .academic-contact {
+        font-size: 0.95rem;
+        color: #444;
+        margin-top: 0.5em;
+      }
     </style>
   </head>
   <body class="bg-gray-50 text-gray-900">
@@ -217,16 +257,33 @@
       // Publications Section
       function Publications({ publications }) {
         if (!publications) return null;
+        // Support grouped publications with heading and items
         return (
           <section id="publications" className="py-12 bg-gray-50">
             <div className="max-w-3xl mx-auto px-4">
               <h2 className="text-2xl font-bold mb-4">Publications</h2>
               <div className="grid gap-6">
-                {publications.map((pub, idx) => (
+                {publications.map((group, idx) => (
                   <div key={idx} className="bg-white rounded shadow p-4 hover:shadow-lg transition-shadow duration-200">
-                    <h3 className="font-semibold mb-1">{pub.title}</h3>
-                    <p className="mb-2 text-sm">{pub.venue} ({pub.year})</p>
-                    {pub.link && <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-sm">View Publication</a>}
+                    <h3 className="font-semibold mb-2">{group.heading}</h3>
+                    <ul className="ml-2">
+                      {group.items && group.items.map((item, i) => (
+                        <li key={i} className="mb-4">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                              <span className="font-semibold text-base">{item.title}</span>
+                              {item.venue && <div className="italic text-sm text-gray-700 mt-1">{item.venue}</div>}
+                            </div>
+                            {item.year && <span className="text-xs text-gray-500 md:text-right md:ml-4 mt-1 md:mt-0">{item.year}</span>}
+                          </div>
+                          {item.link && (
+                            <div className="mt-2">
+                              <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-xs font-medium">View Publication</a>
+                            </div>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
