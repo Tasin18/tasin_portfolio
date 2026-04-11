@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "MD. Golam All Gaffar Tasin",
-    "title": "Lecturer in Computer Science & Engineering at North Bengal International University",
+    "title": "Lecturer in Computer Science & Engineering at Northern University Bangladesh",
     "headshot": "passport size image.jpg",
     "summary": "BSc in CSE with expertise in Deep Learning, Computer Vision and a commitment to inspiring students through innovative teaching and research."
   },
@@ -33,7 +33,7 @@
       "issuer": "Bangladesh Computer Council (BCC)",
       "year": "2023",
       "link": "https://drive.google.com/file/d/1rzlcgE0TZxB1pwAkIheVWz3TDZnbjhg_/view",
-      "certificate_link": ""
+      "certificate_link": "https://drive.google.com/file/d/1rzlcgE0TZxB1pwAkIheVWz3TDZnbjhg_/view"
     }
   ],
   "skills": {
@@ -43,8 +43,14 @@
   "experience": [
     {
       "role": "Lecturer",
+      "institution": "Northern University Bangladesh",
+      "duration": "Jan 2026 - Present",
+      "description": "Teaching undergraduate courses in Computer Science & Engineering. Mentoring students on academic projects and research initiatives while fostering innovation in computer science education."
+    },
+    {
+      "role": "Lecturer",
       "institution": "North Bengal International University",
-      "duration": "August 2025 - Present",
+      "duration": "August 2025 - jan 2026",
       "description": "Teaching undergraduate courses in Computer Science & Engineering, including Digital Signal Processing, Wireless Communication And Networks and Database Systems. Mentoring students on academic projects and research initiatives."
     }
   ],

@@ -11,47 +11,218 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-      body { font-family: 'Inter', Arial, sans-serif; background: #f8f9fa; color: #222; }
+      body { font-family: 'Inter', Arial, sans-serif; background: linear-gradient(135deg, #f8f9fa 0%, #f3f4f6 100%); color: #222; }
       h1, h2, h3, h4, h5, h6 { font-family: 'Georgia', serif; }
       html { scroll-behavior: smooth; }
+      
+      /* Modern animations */
+      @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes shimmer { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
+      
       .section-title {
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         font-size: 1.15rem;
         color: #2a3a4d;
-        border-bottom: 1px solid #e0e0e0;
-        padding-bottom: 0.25em;
-        margin-bottom: 1.5em;
+        padding-bottom: 1em;
+        margin-bottom: 2em;
         font-weight: 700;
+        position: relative;
+        display: inline-block;
       }
+      
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #2a3a4d 0%, #60a5fa 100%);
+        border-radius: 2px;
+      }
+      
       .academic-container {
         max-width: 900px;
         margin: 0 auto;
         background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 0 1px rgba(0,0,0,0.05);
+        border-radius: 12px;
         padding: 2.5rem 2rem 2rem 2rem;
+        animation: fadeIn 0.6s ease-out;
+        border: 1px solid rgba(255,255,255,0.8);
       }
+      
       .academic-header {
-        border-bottom: 2px solid #e0e0e0;
+        border-bottom: 2px solid #f0f0f0;
         margin-bottom: 2rem;
-        padding-bottom: 1rem;
+        padding-bottom: 1.5rem;
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 2rem;
       }
+      
       .academic-headshot {
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
         object-fit: cover;
-        border: 2px solid #e0e0e0;
+        border: 4px solid #fff;
+        box-shadow: 0 12px 30px rgba(42, 58, 77, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+      
+      .academic-headshot:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(42, 58, 77, 0.25);
+      }
+      
       .academic-contact {
         font-size: 0.95rem;
-        color: #444;
-        margin-top: 0.5em;
+        color: #555;
+        margin-top: 0.8em;
+        line-height: 1.8;
+      }
+      
+      .modern-link {
+        color: #2a3a4d;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+        padding-bottom: 2px;
+      }
+      
+      .modern-link:hover {
+        border-bottom-color: #60a5fa;
+        color: #60a5fa;
+      }
+      
+      .modern-button {
+        background: linear-gradient(135deg, #2a3a4d 0%, #1e2b3a 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(42, 58, 77, 0.2);
+        font-size: 0.95rem;
+      }
+      
+      .modern-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(42, 58, 77, 0.3);
+      }
+      
+      .modern-button:active {
+        transform: translateY(0);
+      }
+      
+      .modern-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      
+      .skill-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, #f0f4f8 0%, #e8eef7 100%);
+        color: #2a3a4d;
+        padding: 8px 14px;
+        border-radius: 20px;
+        margin: 4px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: 1px solid #d0d8e8;
+        transition: all 0.3s ease;
+      }
+      
+      .skill-tag:hover {
+        background: linear-gradient(135deg, #e8eef7 0%, #dce5f0 100%);
+        border-color: #60a5fa;
+        color: #2a3a4d;
+        box-shadow: 0 4px 12px rgba(96, 165, 250, 0.15);
+      }
+      
+      .project-card {
+        background: white;
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      
+      .project-card:hover {
+        border-color: #60a5fa;
+        box-shadow: 0 8px 24px rgba(96, 165, 250, 0.12);
+        transform: translateY(-4px);
+      }
+      
+      .timeline-item {
+        position: relative;
+        padding-left: 2rem;
+      }
+      
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        background: #60a5fa;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 0 0 2px #60a5fa;
+      }
+      
+      .form-input {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background: #fafbfc;
+      }
+      
+      .form-input:focus {
+        outline: none;
+        border-color: #60a5fa;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+      }
+      
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #60a5fa;
+        transition: width 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        color: #2a3a4d;
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
       }
     </style>
   </head>
@@ -94,28 +265,28 @@
         ];
         const [open, setOpen] = React.useState(false);
         return (
-          <nav className="fixed w-full bg-white border-b border-gray-200 z-50">
-            <div className="max-w-5xl mx-auto flex justify-between items-center px-4 py-2">
-              <span className="font-bold text-lg tracking-wide">{about?.name || 'Portfolio'}</span>
-              <button className="md:hidden p-2 focus:outline-none" onClick={() => setOpen(!open)} aria-label="Toggle navigation">
+          <nav className="fixed w-full bg-white border-b border-gray-100 z-50 backdrop-filter backdrop-blur-sm bg-opacity-95 shadow-sm">
+            <div className="max-w-5xl mx-auto flex justify-between items-center px-4 py-3">
+              <span className="font-bold text-lg tracking-wide text-gray-900" style={{fontFamily: 'Georgia, serif'}}>{about?.name || 'Portfolio'}</span>
+              <button className="md:hidden p-2 focus:outline-none text-gray-600 hover:text-gray-900" onClick={() => setOpen(!open)} aria-label="Toggle navigation">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
-              <ul className="hidden md:flex space-x-4">
+              <ul className="hidden md:flex space-x-6">
                 {navItems.map(item => (
                   <li key={item.href}>
-                    <a href={item.href} className="hover:text-blue-600 transition-colors duration-200 focus:outline-none focus:underline">{item.label}</a>
+                    <a href={item.href} className="nav-link text-gray-700 text-sm font-medium">{item.label}</a>
                   </li>
                 ))}
               </ul>
             </div>
             {/* Mobile menu */}
             {open && (
-              <ul className="md:hidden flex flex-col space-y-2 px-4 pb-4 bg-white border-t">
+              <ul className="md:hidden flex flex-col space-y-1 px-4 pb-4 bg-white border-t border-gray-100">
                 {navItems.map(item => (
                   <li key={item.href}>
-                    <a href={item.href} className="block py-2 hover:text-blue-600 transition-colors duration-200 focus:outline-none focus:underline" onClick={() => setOpen(false)}>{item.label}</a>
+                    <a href={item.href} className="block py-3 px-2 text-gray-700 text-sm font-medium hover:bg-gray-50 rounded transition-colors" onClick={() => setOpen(false)}>{item.label}</a>
                   </li>
                 ))}
               </ul>
@@ -128,19 +299,19 @@
       function About({ about, contact }) {
         if (!about) return null;
         return (
-          <section id="about" className="pt-24 pb-8 bg-white">
+          <section id="about" className="pt-24 pb-8 bg-gradient-to-b from-white via-gray-50 to-gray-50">
             <div className="max-w-3xl mx-auto px-4">
               <div className="academic-header">
                   <img src={about.headshot} alt={about.name + ' professional headshot'} className="academic-headshot" loading="lazy" />
                 <div>
-                  <h1 className="text-3xl font-bold mb-1" style={{fontFamily: 'Georgia, serif'}}>{about.name}</h1>
-                  <h2 className="text-lg text-blue-900 mb-2" style={{fontFamily: 'Georgia, serif'}}>{about.title}</h2>
-                  <p className="mb-2 text-base">{about.summary}</p>
+                  <h1 className="text-4xl font-bold mb-2 text-gray-900" style={{fontFamily: 'Georgia, serif'}}>{about.name}</h1>
+                  <h2 className="text-lg font-semibold text-gray-700 mb-3" style={{fontFamily: 'Georgia, serif'}}>{about.title}</h2>
+                  <p className="mb-3 text-base leading-relaxed text-gray-700">{about.summary}</p>
                   {contact && (
                     <div className="academic-contact">
-                      <span>Email: <a href={`mailto:${contact.email}`} className="text-blue-700 hover:underline">{contact.email}</a></span><br/>
-                      <span>LinkedIn: <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">Profile</a></span>
-                      {contact.github && <><br/><span>GitHub: <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">{contact.github}</a></span></>}
+                      <span>Email: <a href={`mailto:${contact.email}`} className="modern-link">{contact.email}</a></span><br/>
+                      <span>LinkedIn: <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="modern-link">Profile</a></span>
+                      {contact.github && <><br/><span>GitHub: <a href={contact.github} target="_blank" rel="noopener noreferrer" className="modern-link">{contact.github}</a></span></>}
                     </div>
                   )}
                 </div>
@@ -154,32 +325,32 @@
       function Education({ education }) {
         if (!education) return null;
         return (
-          <section id="education" className="py-10 bg-gray-50">
+          <section id="education" className="py-12 bg-gray-50">
             <div className="academic-container">
               <h2 className="section-title">Education</h2>
               {education.map((item, idx) => (
-                <div key={idx} className="mb-6">
-                  <h3 className="font-semibold text-lg" style={{fontFamily: 'Georgia, serif'}}>{item.degree || item.certification}</h3>
-                  <div className="text-sm text-gray-700 mb-1">
-                    {item.university || item.institution}{item.university || item.institution ? ',' : ''} {item.year}
+                <div key={idx} className="mb-8 pb-6 border-b border-gray-200 last:border-b-0">
+                  <h3 className="font-bold text-lg text-gray-900 mb-1" style={{fontFamily: 'Georgia, serif'}}>{item.degree || item.certification}</h3>
+                  <div className="text-sm text-gray-600 mb-2 font-medium">
+                    {item.university || item.institution}{item.university || item.institution ? ' • ' : ''} {item.year}
                   </div>
-                  {item.cgpa && <div className="text-sm">CGPA: {item.cgpa}</div>}
-                  {item.result && <div className="text-sm">Result: {item.result}</div>}
-                  {item.group && <div className="text-sm">Group: {item.group}</div>}
+                  {item.cgpa && <div className="text-sm text-gray-700 font-medium">CGPA: <span className="text-gray-900 font-semibold">{item.cgpa}</span></div>}
+                  {item.result && <div className="text-sm text-gray-700 font-medium">Result: <span className="text-gray-900 font-semibold">{item.result}</span></div>}
+                  {item.group && <div className="text-sm text-gray-700">Group: {item.group}</div>}
                   {item.coursework && item.coursework.length > 0 && (
-                    <div className="text-xs text-gray-600 mt-1">
-                      <span className="font-semibold">Relevant Coursework:</span>
-                      <ul className="list-disc ml-6 mt-1">
+                    <div className="text-xs text-gray-600 mt-3">
+                      <span className="font-semibold text-gray-700">Relevant Coursework:</span>
+                      <div className="flex flex-wrap gap-2 mt-2">
                         {item.coursework.map((course, i) => (
-                          <li key={i}>{course}</li>
+                          <span key={i} className="skill-tag">{course}</span>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   )}
-                  {item.issuer && <div className="text-sm">{item.issuer}</div>}
+                  {item.issuer && <div className="text-sm text-gray-700 mt-2">{item.issuer}</div>}
                   {item.certificate_link && (
-                    <div className="mt-1">
-                      <a href={item.certificate_link} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline text-xs">View Certificate</a>
+                    <div className="mt-3">
+                      <a href={item.certificate_link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-400 transition-colors">View Certificate ↗</a>
                     </div>
                   )}
                 </div>
@@ -192,18 +363,17 @@
       // Skills Section
       function Skills({ skills }) {
         if (!skills) return null;
-        // Dynamically render all skill categories and their items
         return (
-          <section id="skills" className="py-10 bg-white">
+          <section id="skills" className="py-12 bg-white">
             <div className="academic-container">
               <h2 className="section-title">Skills</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {Object.entries(skills).map(([category, items]) => (
                   <div key={category}>
-                    <h3 className="font-semibold mb-2 capitalize" style={{fontFamily: 'Georgia, serif'}}>{category.replace(/_/g, ' ')} Skills</h3>
-                    <ul className="list-disc ml-6 text-sm">
-                      {items.map((s, i) => <li key={i}>{s}</li>)}
-                    </ul>
+                    <h3 className="font-bold text-lg mb-4 text-gray-900 capitalize" style={{fontFamily: 'Georgia, serif'}}>{category.replace(/_/g, ' ')} Skills</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {items.map((s, i) => <span key={i} className="skill-tag">{s}</span>)}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -216,14 +386,14 @@
       function Experience({ experience }) {
         if (!experience) return null;
         return (
-          <section id="experience" className="py-10 bg-gray-50">
+          <section id="experience" className="py-12 bg-gray-50">
             <div className="academic-container">
               <h2 className="section-title">Experience</h2>
               {experience.map((item, idx) => (
-                <div key={idx} className="mb-6">
-                  <h3 className="font-semibold text-base" style={{fontFamily: 'Georgia, serif'}}>{item.role}{item.institution ? `, ${item.institution}` : ''}</h3>
-                  <div className="text-sm text-gray-700 mb-1">{item.duration}</div>
-                  <div className="text-sm">{item.description}</div>
+                <div key={idx} className="timeline-item mb-8 pb-8 last:pb-0 last:mb-0">
+                  <h3 className="font-bold text-lg text-gray-900 mb-1" style={{fontFamily: 'Georgia, serif'}}>{item.role}{item.institution ? ` • ${item.institution}` : ''}</h3>
+                  <div className="text-sm text-gray-600 font-medium mb-2">{item.duration}</div>
+                  <p className="text-gray-700 leading-relaxed">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -235,17 +405,19 @@
       function Projects({ projects }) {
         if (!projects) return null;
         return (
-          <section id="projects" className="py-10 bg-white">
+          <section id="projects" className="py-12 bg-white">
             <div className="academic-container">
               <h2 className="section-title">Projects</h2>
               <div className="grid gap-6 md:grid-cols-2">
                 {projects.map((project, idx) => (
-                  <div key={idx} className="bg-gray-50 rounded p-4 border border-gray-100">
-                    <h3 className="font-semibold mb-1 text-base" style={{fontFamily: 'Georgia, serif'}}>{project.title}</h3>
-                    <p className="mb-2 text-sm">{project.description}</p>
-                    <p className="mb-2 text-xs text-gray-600">Technologies: {project.technologies?.join(', ')}</p>
-                    {project.outcomes && <p className="mb-2 text-xs text-gray-600">{project.outcomes}</p>}
-                    {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline text-sm">View Project</a>}
+                  <div key={idx} className="project-card">
+                    <h3 className="font-bold mb-2 text-lg text-gray-900" style={{fontFamily: 'Georgia, serif'}}>{project.title}</h3>
+                    <p className="mb-3 text-sm text-gray-700 flex-grow">{project.description}</p>
+                    {project.technologies && <p className="mb-3 text-xs text-gray-600 font-medium">
+                      <span className="text-gray-700">Tech:</span> {project.technologies?.join(', ')}
+                    </p>}
+                    {project.outcomes && <p className="mb-3 text-xs text-gray-600">{project.outcomes}</p>}
+                    {project.link && <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-gray-400 transition-colors">View Project ↗</a>}
                   </div>
                 ))}
               </div>
@@ -257,28 +429,27 @@
       // Publications Section
       function Publications({ publications }) {
         if (!publications) return null;
-        // Support grouped publications with heading and items
         return (
-          <section id="publications" className="py-10 bg-gray-50">
+          <section id="publications" className="py-12 bg-gray-50">
             <div className="academic-container">
               <h2 className="section-title">Publications</h2>
-              <div className="grid gap-6">
+              <div className="grid gap-8">
                 {publications.map((group, idx) => (
                   <div key={idx}>
-                    <h3 className="font-semibold mb-2" style={{fontFamily: 'Georgia, serif'}}>{group.heading}</h3>
-                    <ul className="ml-2">
+                    <h3 className="font-bold text-lg mb-6 text-gray-900" style={{fontFamily: 'Georgia, serif'}}>{group.heading}</h3>
+                    <ul className="space-y-4">
                       {group.items && group.items.map((item, i) => (
-                        <li key={i} className="mb-4">
-                          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                            <div>
-                              <span className="font-semibold text-base" style={{fontFamily: 'Georgia, serif'}}>{item.title}</span>
-                              {item.venue && <div className="italic text-sm text-gray-700 mt-1">{item.venue}</div>}
+                        <li key={i} className="pb-4 border-b border-gray-200 last:border-b-0">
+                          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                            <div className="flex-1">
+                              <span className="font-semibold text-base text-gray-900" style={{fontFamily: 'Georgia, serif'}}>{item.title}</span>
+                              {item.venue && <div className="italic text-sm text-gray-600 mt-1">{item.venue}</div>}
                             </div>
-                            {item.year && <span className="text-xs text-gray-500 md:text-right md:ml-4 mt-1 md:mt-0">{item.year}</span>}
+                            {item.year && <span className="text-xs text-gray-500 font-medium whitespace-nowrap">{item.year}</span>}
                           </div>
                           {item.link && (
-                            <div className="mt-2">
-                              <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-700 text-white px-3 py-1 rounded hover:bg-blue-800 text-xs font-medium">View Publication</a>
+                            <div className="mt-3">
+                              <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-3 py-2 rounded text-xs font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors border border-gray-200">View Publication ↗</a>
                             </div>
                           )}
                         </li>
@@ -296,12 +467,14 @@
       function Research({ research_interests }) {
         if (!research_interests) return null;
         return (
-          <section id="research" className="py-10 bg-white">
+          <section id="research" className="py-12 bg-white">
             <div className="academic-container">
               <h2 className="section-title">Research Interests</h2>
-              <ul className="list-disc ml-6 mb-4 text-sm">
-                {research_interests.map((r, i) => <li key={i}>{r}</li>)}
-              </ul>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {research_interests.map((r, i) => (
+                  <span key={i} className="skill-tag">{r}</span>
+                ))}
+              </div>
             </div>
           </section>
         );
@@ -309,12 +482,11 @@
 
       // CV Section
       function CVSection() {
-        // Assumes cv.pdf is in the same directory as index.html
         return (
-          <section id="cv" className="py-10 bg-white">
+          <section id="cv" className="py-12 bg-gray-50">
             <div className="academic-container text-center">
               <h2 className="section-title">Download CV</h2>
-              <a href="cv.pdf" download className="inline-block bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-800 font-semibold">Download My CV (PDF)</a>
+              <a href="cv.pdf" download className="modern-button">Download My CV (PDF) ↓</a>
             </div>
           </section>
         );
@@ -341,8 +513,7 @@
           }
           setSending(true);
           setError('');
-          // Replace the endpoint below with your Formspree endpoint after signup
-          const endpoint = 'https://formspree.io/f/xnndrgjk'; // DEMO endpoint, replace with your own
+          const endpoint = 'https://formspree.io/f/xnndrgjk';
           try {
             const res = await fetch(endpoint, {
               method: 'POST',
@@ -365,34 +536,45 @@
           setSending(false);
         }
         return (
-          <section id="contact" className="py-10 bg-gray-50">
+          <section id="contact" className="py-12 bg-white">
             <div className="academic-container">
               <h2 className="section-title">Contact</h2>
-              <div className="mb-4 text-sm">
-                <span>Email: <a href={`mailto:${contact.email}`} className="text-blue-700 hover:underline">{contact.email}</a></span><br/>
-                <span>LinkedIn: <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">Profile</a></span>
-                {contact.github && <><br/><span>GitHub: <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">{contact.github}</a></span></>}
+              <div className="mb-6 space-y-2">
+                <div className="text-sm">
+                  <span className="text-gray-600">Email: </span>
+                  <a href={`mailto:${contact.email}`} className="modern-link">{contact.email}</a>
+                </div>
+                <div className="text-sm">
+                  <span className="text-gray-600">LinkedIn: </span>
+                  <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="modern-link">Profile ↗</a>
+                </div>
+                {contact.github && <div className="text-sm">
+                  <span className="text-gray-600">GitHub: </span>
+                  <a href={contact.github} target="_blank" rel="noopener noreferrer" className="modern-link">{contact.github} ↗</a>
+                </div>}
               </div>
-              <div className="bg-gray-50 rounded border border-gray-100 p-4">
-                <h3 className="font-semibold mb-2" style={{fontFamily: 'Georgia, serif'}}>Contact Form</h3>
+              <div className="bg-gray-50 rounded-lg border border-gray-200 p-6">
+                <h3 className="font-bold text-lg mb-4 text-gray-900" style={{fontFamily: 'Georgia, serif'}}>Send a Message</h3>
                 {submitted ? (
-                  <p className="text-green-700">Thank you for your message!</p>
+                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+                    ✓ Thank you for your message! I'll get back to you soon.
+                  </div>
                 ) : (
                   <>
-                    <div className="mb-2">
-                      <label className="block text-sm font-medium">Name</label>
-                      <input type="text" name="name" value={form.name} onChange={handleChange} className="w-full border rounded px-2 py-1" />
+                    <div className="mb-4">
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+                      <input type="text" name="name" value={form.name} onChange={handleChange} className="form-input" placeholder="John Doe" />
                     </div>
-                    <div className="mb-2">
-                      <label className="block text-sm font-medium">Email</label>
-                      <input type="email" name="email" value={form.email} onChange={handleChange} className="w-full border rounded px-2 py-1" />
+                    <div className="mb-4">
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                      <input type="email" name="email" value={form.email} onChange={handleChange} className="form-input" placeholder="you@example.com" />
                     </div>
-                    <div className="mb-2">
-                      <label className="block text-sm font-medium">Message</label>
-                      <textarea name="message" value={form.message} onChange={handleChange} className="w-full border rounded px-2 py-1" rows="3"></textarea>
+                    <div className="mb-4">
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                      <textarea name="message" value={form.message} onChange={handleChange} className="form-input" rows="4" placeholder="Your message here..."></textarea>
                     </div>
-                    {error && <p className="text-red-700 text-sm mb-2">{error}</p>}
-                    <button type="button" onClick={handleSubmit} className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition-colors" disabled={sending}>{sending ? 'Sending...' : 'Send'}</button>
+                    {error && <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">⚠ {error}</div>}
+                    <button type="button" onClick={handleSubmit} className="modern-button" disabled={sending}>{sending ? '⏳ Sending...' : 'Send Message'}</button>
                   </>
                 )}
               </div>
@@ -404,8 +586,8 @@
       // Main App Component
       function App() {
         const [config, error] = useConfig();
-        if (error) return <div className="text-center mt-20 text-red-600">{error}</div>;
-        if (!config) return <div className="text-center mt-20">Loading...</div>;
+        if (error) return <div className="text-center mt-20 text-red-600 text-sm">{error}</div>;
+        if (!config) return <div className="text-center mt-20 text-gray-500">Loading portfolio...</div>;
         return (
           <div className="min-h-screen flex flex-col">
             <Navbar about={config.about} />
@@ -420,8 +602,8 @@
               <CVSection />
               <Contact contact={config.contact} />
             </main>
-            <footer className="text-center text-xs text-gray-500 py-4 bg-gray-50 mt-8">
-              &copy; {new Date().getFullYear()} {config.about?.name || 'Portfolio'}. Built with React & Tailwind CSS.
+            <footer className="text-center text-xs text-gray-600 py-6 bg-gray-50 border-t border-gray-200">
+              <p>&copy; {new Date().getFullYear()} {config.about?.name || 'Portfolio'}. Built with React & Tailwind CSS.</p>
             </footer>
           </div>
         );
